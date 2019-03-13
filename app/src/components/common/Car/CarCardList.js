@@ -21,7 +21,7 @@ const CarCardList = (props) => {
 
 
   return (
-    <div className='row'>
+    <div className='cars'>
       {carCardList}
     </div>
   )

@@ -158,6 +158,14 @@ th {
     width: 100% !important;
 }
 
+.cars {
+    display: grid;
+    grid-gap: 30px;
+    grid-template-columns: repeat(1, 1fr);
+}
+.card {
+    display: block;
+}
 
 @media screen and (max-width: 800px){
     nav.navbar-menu a {

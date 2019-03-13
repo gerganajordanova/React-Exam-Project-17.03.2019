@@ -27,12 +27,12 @@ class CarCard extends Component {
   }
 
   render () {
-    const { id, model, image, year} = this.props
+    const { id, model, image} = this.props
     let footer
     if (Auth.isUserAdmin()) {
       footer = (
         <div className='card-footer'>
-          <small className='text-muted'>{model}</small>
+          
           <button onClick={this.onDeleteButtonClick} className='btn btn-danger float-right btn-sm'><i className='fa fa-trash' /></button>
           <Link to={`/admin/edit/${id}`} className='btn btn-warning float-right btn-sm'><i className='fa fa-edit' /></Link>
         </div>
@@ -40,7 +40,6 @@ class CarCard extends Component {
     } else {
       footer = (
         <div className='card-footer'>
-          <small className='text-muted'>{model}</small>
           <Link to={`/details/${id}`} type='button' className='btn btn-primary float-right btn-sm'>Details</Link>
           <button type='button' className='btn btn-warning float-right btn-sm' onClick={this.onOrderButtonClick}>Order</button>
         </div>
@@ -48,11 +47,10 @@ class CarCard extends Component {
     }
 
     return (
-      <div className='card col-4'>
-        <img className='card-img-top card-image' src={image} alt={model} />
+      <div className='card col-4'>  
         <div className='card-body'>
-          <h5 className='card-title'>{model}</h5>
-          <p className='card-text'>{year}</p>
+        <p className='card-text'>{model}</p>
+        <img className='card-img-top card-image' src={image} alt={model} />     
         </div>
         {footer}
       </div>

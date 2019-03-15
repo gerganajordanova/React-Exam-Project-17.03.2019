@@ -3,14 +3,19 @@
   "version": "0.0.1",
   "description": "Car Rent Store",
   "main": "index.js",
-  "keywords": [
-    "pizza",
-    "system"
-  ],
+  "scripts": {
+    "app-install": "npm install --prefix app",
+    "start": "nodemon index.js",
+    "server": "nodemon index.js",
+    "app": "npm start --prefix app",
+    "dev": "concurrently \"npm run server\" \"npm run app\"",
+    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix app && npm run build --prefix app"
+  },
   "author": "PA",
   "license": "MIT",
   "dependencies": {
     "body-parser": "^1.18.3",
+    "concurrently": "^4.1.0",
     "cookie-parser": "1.4.3",
     "cors": "2.8.4",
     "express": "^4.16.4",
@@ -21,5 +26,8 @@
     "passport-local": "1.0.0",
     "standard": "11.0.1",
     "validator": "10.4.0"
+  },
+  "devDependencies": {
+    "nodemon": "^1.17.5"
   }
 }
